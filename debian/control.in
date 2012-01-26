@@ -1,0 +1,80 @@
+Source: idol-pl-parser
+Section: libs
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Debian MATE Maintainers <pkg-mate-maintainers@lists.alioth.debian.org>
+Build-Depends: debhelper (>= 8),
+               autotools-dev,
+               cdbs (>= 0.4.37),
+               intltool (>= 0.35),
+               libxml-parser-perl,
+               libglib2.0-dev (>= 2.24.0),
+               libxml2-dev,
+               libgmime-2.4-dev,
+               libquvi-dev (>= 0.2.11),
+               gtk-doc-tools (>= 1.11),
+               libglib2.0-doc,
+               libgirepository1.0-dev (>= 0.9.12),
+               gobject-introspection (>= 0.9.12-4~),
+               gir1.2-glib-2.0,
+               libsoup-gnome2.4-dev
+Uploaders: @MATE_TEAM@
+Standards-Version: 3.8.4
+
+Package: libidol-plparser-dev
+Section: libdevel
+Architecture: any
+Depends: ${misc:Depends},
+         libidol-plparser17 (= ${binary:Version}),
+         libglib2.0-dev (>= 2.24.0),
+         libquvi-dev (>= 0.2.11),
+         libxml2-dev,
+         libgmime-2.4-dev
+Replaces: libidol-plparser10
+Description: Idol Playlist Parser library - development files
+ idol-pl-parser is a simple GObject-based library to parse a host of
+ playlist formats, as well as save those.
+ .
+ This package contains the development headers and documentation.
+
+Package: libidol-plparser17
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Replaces: libidol-plparser10, libidol-plparser12
+Description: Idol Playlist Parser library - runtime files
+ idol-pl-parser is a simple GObject-based library to parse a host of
+ playlist formats, as well as save those.
+ .
+ This package contains the shared library.
+
+Package: libidol-plparser-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Depends: libidol-plparser17 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Idol Playlist Parser library - debugging symbols
+ idol-pl-parser is a simple GObject-based library to parse a host of
+ playlist formats, as well as save those.
+ .
+ This package contains the debugging symbols.
+
+Package: gir1.2-idol-plparser-1.0
+Section: libs
+Architecture: any
+Depends: ${gir:Depends},
+         ${shlibs:Depends},
+         ${misc:Depends}
+Conflicts: gir1.0-idol-plparser-1.0
+Replaces: gir1.0-idol-plparser-1.0
+Description: GObject introspection data for the Idol Playlist Parser library
+ This package contains introspection data for the Idol Playlist Parser
+ library.
+ .
+ idol-pl-parser is a simple GObject-based library to parse a host of
+ playlist formats, as well as save those.
+ .
+ It can be used by packages using the GIRepository format to generate
+ dynamic bindings.

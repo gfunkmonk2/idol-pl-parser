@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/autotools.mk
+
+libidol-plparserN := $(shell sed -rn 's/^Package:[[:space:]]*(libidol-plparser[0-9]+)[[:space:]]*$$/\1/p' debian/control)
+
+DEB_DH_MAKESHLIBS_ARGS_$(libidol-plparserN) += -V '$(libidol-plparserN) (>= 2.30.1)' -- -c4
+
+$(patsubst %,binary-predeb/%,$(DEB_ALL_PACKAGES)) ::
+	dh_girepository -p$(cdbs_curpkg)
